@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-4","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-1","id":4}];
+var items = [{"id":1,"group":1,"content":"Users\/post\/user-post[1.1:14]","start":1690998149122,"end":1690998151579,"title":"Users\/post\/user-post[1.1:14] 12:42:29.122-12:42:31.579 Post a user"},{"id":2,"group":2,"content":"Users\/post\/user-post[1.2:15]","start":1690998151617,"end":1690998152575,"title":"Users\/post\/user-post[1.2:15] 12:42:31.617-12:42:32.575 Post a user"},{"id":3,"group":1,"content":"Users\/post\/user-post[1.3:16]","start":1690998151642,"end":1690998152608,"title":"Users\/post\/user-post[1.3:16] 12:42:31.642-12:42:32.608 Post a user"},{"id":4,"group":3,"content":"Users\/post\/user-post[2:18]","start":1690998152179,"end":1690998152984,"title":"Users\/post\/user-post[2:18] 12:42:32.179-12:42:32.984 Post a user"},{"id":5,"group":4,"content":"Users\/post\/user-post[3:24]","start":1690998152624,"end":1690998153281,"title":"Users\/post\/user-post[3:24] 12:42:32.624-12:42:33.281 Post a user"},{"id":6,"group":2,"content":"Users\/post\/user-post[4:30]","start":1690998152638,"end":1690998153311,"title":"Users\/post\/user-post[4:30] 12:42:32.638-12:42:33.311 Post a user"},{"id":7,"group":1,"content":"Users\/put\/user-put[1:3]","start":1690998152620,"end":1690998153270,"title":"Users\/put\/user-put[1:3] 12:42:32.620-12:42:33.270 Put a user","className":"failed"},{"id":8,"group":4,"content":"Users\/delete\/user-delete[1:4]","start":1690998149124,"end":1690998152581,"title":"Users\/delete\/user-delete[1:4] 12:42:29.124-12:42:32.581 Delete a use"},{"id":9,"group":2,"content":"Users\/get\/user-get[1:3]","start":1690998149124,"end":1690998151578,"title":"Users\/get\/user-get[1:3] 12:42:29.124-12:42:31.578 Get a user"},{"id":10,"group":3,"content":"Users\/get\/user-get[2:9]","start":1690998149122,"end":1690998151973,"title":"Users\/get\/user-get[2:9] 12:42:29.122-12:42:31.973 Get a list of user"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
